@@ -18,16 +18,19 @@ public class Communication {
 	public Communication(FiveClient fc) {
 		this.fc=fc;
 	}
-	public void connect(String IP,int port) {
+	public boolean connect(String IP,int port) {
 		try {
 			s=new Socket(IP,port);
 			new ReceaveThread(s).start();
 			//dis=new DataInputStream(s.getInputStream());
 			dos=new DataOutputStream(s.getOutputStream());
+			return true;
 		}catch(UnknownHostException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"服务器IP无效,请重新输入!");
+			return false;
 		}catch(IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"服务器IP无效,请重新输入!");
+			return false;
 		}
 	}
 	

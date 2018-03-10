@@ -68,7 +68,8 @@ public class FiveClient extends JFrame {
 	public void connect() {
 		c=new Communication(this);
 		String ip=control.inputIP.getText();
-		c.connect(ip,FiveServer.TCP_PORT);
+		boolean lian=c.connect(ip,FiveServer.TCP_PORT);
+		if(!lian)return;
 		message.messageArea.append("ÒÑÁ¬½Ó\n");
 		isConnected=true;
 		control.exitGameButton.setEnabled(true);
