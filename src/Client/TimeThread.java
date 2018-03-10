@@ -29,7 +29,6 @@ public class TimeThread extends Thread {
 				--opTotalTime;
 				fc.timing.setOpTime(opTotalTime);
 				if(opTotalTime<=0) {
-					fc.c.giveUp();
 					break;
 				}
 			}
